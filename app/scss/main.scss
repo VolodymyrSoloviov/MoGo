@@ -1,0 +1,20 @@
+//colors
+$white: #fff;
+$gray: #999;
+$black: #333;
+
+//layout
+@import "layout/adjustment";
+@import "layout/fonts";
+
+//sections
+@import "sections/header";
+@import "sections/first";
+@import "sections/footer";
+
+// media
+@import "media/tv";
+@import "media/desktop";
+@import "media/laptop";
+@import "media/tablets";
+@import "media/phones";
