@@ -35,7 +35,8 @@ var vendorJs = [
   ];
 // Пути к нашим внешним плагинам и библиотекам css
 var vendorCss = [
-  'app/bower/normalize.css/normalize.css', 
+  'app/bower/normalize.css/normalize.css',
+  'app/scss/layout/all.css', 
   ];
 
 // Запускаем сервер. Предварительно выполнив задачи ['html', 'styles', 'images',
