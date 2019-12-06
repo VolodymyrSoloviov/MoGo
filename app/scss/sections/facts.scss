@@ -1,0 +1,36 @@
+.facts {
+	min-height: 270px;
+	background-color: #95e1d3;
+}
+
+.facts__list {
+	display: flex;
+	color: #fff;
+}
+
+.facts__item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 240px;
+	height: 270px;
+	border-right: 1px solid #b5eae0;
+
+	&:first-child {
+		border-left: 1px solid #b5eae0;
+	}
+}
+
+.facts__itemNub {
+	font-family: 'Montserrat';
+	font-weight: 700;
+	font-size: 72px;
+}
+
+.facts__itemText {
+	font-family: 'Montserrat';
+	font-weight: 400;
+	font-size: 14px;
+	text-transform: uppercase;
+}

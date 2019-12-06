@@ -301,7 +301,6 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 45px;
   color: #333; }
 
 .blockTitle__text {
@@ -317,7 +316,7 @@ h6 {
   text-transform: uppercase; }
 
 .about__text {
-  margin-bottom: 100px;
+  margin: 45px 0 100px;
   width: 960px;
   text-align: center; }
 
@@ -399,6 +398,109 @@ h6 {
   font-weight: 700;
   font-size: 18px;
   text-transform: uppercase; }
+
+.facts {
+  min-height: 270px;
+  background-color: #95e1d3; }
+
+.facts__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff; }
+
+.facts__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 240px;
+  height: 270px;
+  border-right: 1px solid #b5eae0; }
+  .facts__item:first-child {
+    border-left: 1px solid #b5eae0; }
+
+.facts__itemNub {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 72px; }
+
+.facts__itemText {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase; }
+
+.service {
+  min-height: 650px;
+  padding-top: 110px; }
+
+.service__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 15px; }
+
+.service__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 400px;
+  padding: 50px 0; }
+
+.service__itemInfo {
+  width: 285px; }
+
+.service__itemIcon {
+  width: 32px;
+  height: 32px;
+  margin-right: 30px;
+  background: center center no-repeat; }
+
+.service__itemIcon_alarm {
+  background-image: url(../img/icons/alarm.png); }
+
+.service__itemIcon_lineGraph {
+  background-image: url(../img/icons/line-graph.png); }
+
+.service__itemIcon_computer {
+  background-image: url(../img/icons/computer.png); }
+
+.service__itemIcon_book2 {
+  background-image: url(../img/icons/book2.png); }
+
+.service__itemIcon_home {
+  background-image: url(../img/icons/home.png); }
+
+.service__itemIcon_image {
+  background-image: url(../img/icons/image.png); }
+
+.service__itemTitle {
+  margin-bottom: 5px;
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase; }
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background: #e5e5e5; }
 
 @media screen and (max-width: 5000px) {
   .container {
