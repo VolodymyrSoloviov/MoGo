@@ -1,0 +1,59 @@
+.feature {
+	position: relative;
+	min-height: 850px;
+	background: url(../img/bg/nature.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.feature__bg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-top: 110px;
+	background-color: rgba(#fff, .85%);
+}
+
+.feature__tablet {
+	position: absolute;
+	top: 270px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 480px;
+	height: 717px;
+	background: url(../img/bg/tablet.png) center center no-repeat;
+}
+
+.feature__tabletImg {
+	position: absolute;
+	width: 433px;
+	height: 569px;
+	top: 74px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: url(../img/content/screenTablet.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+.feature__phone {
+	position: absolute;
+	top: 470px;
+	left: 69%;
+	transform: translateX(-50%);
+	width: 206px;
+	height: 429px;
+	background: url(../img/bg/phone.png) center center no-repeat;
+}
+
+.feature__phoneImg {
+	position: absolute;
+	width: 180px;
+	height: 314px;
+	top: 55px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: url(../img/content/screenPhoto.jpg) center center no-repeat;
+	background-size: cover;
+}
+
