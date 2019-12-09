@@ -919,6 +919,46 @@ h6 {
   font-weight: 300;
   font-style: italic; }
 
+.logos {
+  min-height: 250px;
+  background-color: #f8f8f8; }
+
+.logos__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 250px; }
+
+.logos__item {
+  width: 130px;
+  height: 130px;
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+.logos__item_first {
+  background-image: url(../img/content/logo1.png); }
+
+.logos__item_second {
+  background-image: url(../img/content/logo2.png); }
+
+.logos__item_third {
+  background-image: url(../img/content/logo3.png); }
+
+.logos__item_fourth {
+  background-image: url(../img/content/logo4.png); }
+
+.logos__item_fifth {
+  background-image: url(../img/content/logo5.png); }
+
+.logos__item_sixth {
+  background-image: url(../img/content/logo6.png); }
+
 @media screen and (max-width: 5000px) {
   .container {
     width: 1200px; } }
