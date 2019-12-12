@@ -26,7 +26,8 @@ const replace = require('gulp-replace');
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 // Пути к нашим модулям JS
 var moduleJs = [
-  'app/js/quoteCarousel.js', 
+  'app/js/quoteCarousel.js',
+  'app/js/testimonialCarousel.js',
   ];
 // Пути к нашим внешним плагинам и библиотекам javascript
 var vendorJs = [
