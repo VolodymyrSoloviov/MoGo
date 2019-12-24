@@ -3,4 +3,94 @@
 	.container {
 		width: 730px;
 	}
+
+	.facts__list {
+		flex-wrap: wrap;
+	}
+
+	.facts__item {
+		margin: 1px;
+		border: 1px solid #b5eae0;
+	}
+
+	.quote__item {
+		align-items: center;
+	}
+
+	.quote__itemLeft {
+		width: 24.2%;
+	}
+
+	.quote__itemInfo {
+		width: 73%;
+	}
+
+	.quote__itemInfo-text {
+		font-size: 20px;
+	}
+
+	.logos__list {
+		flex-wrap: wrap;
+		height: auto;
+		justify-content: flex-start;
+	}
+	
+	.logos__item {
+		width: 25%;
+	}
+
+	.work__list {
+		flex-wrap: wrap;
+		flex-direction: row;
+		height: auto;
+	}
+
+	.work__item {
+		width: 50%;
+	}
+
+	.work__item_long {
+		height: auto;
+	}
+
+	.testimonial__itemLeft {
+		width: 34%;
+	}
+
+	.testimonial__itemInfo  {
+		width: 63%;
+	}
+
+	.testimonial__itemInfo-text {
+		font-size: 20px;
+	}
+
+	.say {
+		min-height: 1180px;
+	}
+
+	.say__item {
+		width: 100%;
+	}
+
+	.say__itemInfo {
+		width: 80%;
+	}
+
+	.blog__list {
+		flex-wrap: wrap;
+	}
+
+	.blog__item {
+		width: 49%;
+		margin-bottom: 15px;
+	}
+
+	.footer__info {
+		width: 100%;
+	}
+
+	.footer__blogs {
+		margin-top: 35px;
+	}
 }
