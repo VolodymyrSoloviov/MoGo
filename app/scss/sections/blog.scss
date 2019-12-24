@@ -15,6 +15,10 @@
 .blog__item {
 	width: 380px;
 	height: 400px;
+
+	&:hover {
+		box-shadow: 0px 0px 9px 0px #c7c7c7;
+	}
 }
 
 .blog__itemLink {
@@ -65,7 +69,7 @@
 .blog__itemInfo {
 	width: 100%;
 	height: 110px;
-	padding: 20px 0;
+	padding: 20px 5px;
 	border-bottom: 1px solid #e5e5e5;
 }
 
@@ -88,6 +92,7 @@
 	align-content: center;
 	width: 100%;
 	height: 50px;
+	padding: 0 5px;
 	font-weight: 300;
   font-style: italic;
   color: $gray;
@@ -114,3 +119,5 @@
 .blog__itemBottom-viewIcon_speech {
 	background-image: url('../img/icons/speech2.png');
 }
+
+

@@ -1,0 +1,24 @@
+.floatMenu {
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50px;
+  background-color: rgb(243, 129, 129);
+  color: $white;
+  z-index: 100;
+}
+
+.floatMenu_active {
+	position: fixed;
+}
+
+.floatMenu__wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 50px;
+}
+
+.menu__item-link_pbn {
+	padding-bottom: 0;
+}

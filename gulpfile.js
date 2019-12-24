@@ -28,6 +28,12 @@ const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'developm
 var moduleJs = [
   'app/js/quoteCarousel.js',
   'app/js/testimonialCarousel.js',
+  'app/js/service2Acco.js',
+  'app/js/footerMore-photo.js',
+  'app/js/map.js',
+  'app/js/smooth-scrolling.js',
+  'app/js/scroll-btn.js',
+  'app/js/floatMenu.js',
   ];
 // Пути к нашим внешним плагинам и библиотекам javascript
 var vendorJs = [

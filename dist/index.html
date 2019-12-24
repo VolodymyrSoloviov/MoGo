@@ -27,19 +27,19 @@
                   <nav class="menu">
                     <ul class="menu__list">
                       <li class="menu__item">
-                        <a href="#" class="menu__item-link">about</a>
+                        <a href="javascript:void(0)" onclick="slowScroll('#about')" class="menu__item-link">about</a>
                       </li>
                       <li class="menu__item">
-                        <a href="#" class="menu__item-link">service</a>
+                        <a href="javascript:void(0)" onclick="slowScroll('#service')" class="menu__item-link">service</a>
                       </li>
                       <li class="menu__item">
-                        <a href="#" class="menu__item-link">work</a>
+                        <a href="javascript:void(0)" onclick="slowScroll('#work')" class="menu__item-link">work</a>
                       </li>
                       <li class="menu__item">
-                        <a href="#" class="menu__item-link">blog</a>
+                        <a href="javascript:void(0)" onclick="slowScroll('#blog')" class="menu__item-link">blog</a>
                       </li>
                       <li class="menu__item">
-                        <a href="#" class="menu__item-link">contact</a>
+                        <a href="javascript:void(0)" onclick="slowScroll('#sectionMap')" class="menu__item-link">contact</a>
                       </li>
                     </ul>
                   </nav>
@@ -101,7 +101,7 @@
           </div> <!--end container-->
         </div> <!--end header__bg-->
       </header> <!--end header-->
-      <section class="about">
+      <section class="about" id="about">
         <div class="container">
           <div class="about__wrap">
             <div class="blockTitle">
@@ -165,7 +165,7 @@
           </ul>
         </div> <!--end container-->
       </section> <!--end facts-->
-      <section class="service">
+      <section class="service" id="service">
         <div class="container">
           <div class="blockTitle">
             <div class="blockTitle__text">We work with</div>
@@ -251,7 +251,7 @@
               </div>
               <div class="service2__right">
                 <ul class="service2__acco">
-                  <li class="service2__accoItem service2__accoItem_active">
+                  <li class="service2__accoItem">
                     <a href="#" class="service2__accoTrigger">
                       <div class="service2__accoTrigger-left">
                         <div class="service2__accoTrigger-icon service2__accoTrigger-icon_picture"></div>
@@ -269,6 +269,7 @@
                       </div>
                       <div class="service2__accoTrigger-arrow"></div>
                     </a>
+                     <div class="service2__accoItem-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid repellendus nemo neque minima, doloribus error et, sequi nam. Cumque expedita omnis dicta enim natus accusamus consectetur asperiores neque qui odit soluta quibusdam commodi, similique delectus animi quasi in quo voluptates, tempore voluptatibus atque iste ducimus repudiandae. Pariatur quam quasi dolore quo doloribus, officia inventore voluptates ea debitis praesentium iure dicta minus est illo autem. Perferendis atque repellat cum odio sequi dolore itaque laboriosam possimus eius nisi ex libero eum, blanditiis aperiam voluptates dolorem nesciunt vitae commodi impedit praesentium non sapiente ad cumque. Necessitatibus accusantium dolore odio harum neque dolorem id.</div>
                   </li>
                   <li class="service2__accoItem">
                     <a href="#" class="service2__accoTrigger">
@@ -278,6 +279,7 @@
                       </div>
                       <div class="service2__accoTrigger-arrow"></div>
                     </a>
+                     <div class="service2__accoItem-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid repellendus nemo neque minima, doloribus error et, sequi nam. Cumque expedita omnis dicta enim natus accusamus consectetur asperiores neque qui odit soluta quibusdam commodi, similique delectus animi quasi in quo voluptates, tempore voluptatibus atque iste ducimus repudiandae. Pariatur quam quasi dolore quo doloribus, officia inventore voluptates ea debitis praesentium iure dicta minus est illo autem. Perferendis atque repellat cum odio sequi dolore itaque laboriosam possimus eius nisi ex libero eum, blanditiis aperiam voluptates dolorem nesciunt vitae commodi impedit praesentium non sapiente ad cumque. Necessitatibus accusantium dolore odio harum neque dolorem id.</div>
                   </li>
                 </ul>
               </div> <!--end service2__right-->
@@ -453,7 +455,7 @@
           </div> <!--end logos__wrap-->    
         </div> <!--end container-->
       </section> <!--end logos-->
-      <section class="work">
+      <section class="work" id="work">
         <div class="work__wrap">
           <div class="blockTitle">
             <div class="blockTitle__text">What we do</div>
@@ -622,7 +624,7 @@
           </div> <!--end container-->
         </div> <!--end say__bg-->
       </section> <!--end say-->
-      <section class="blog">
+      <section class="blog" id="blog">
         <div class="container">
           <div class="blog__wrap">
             <div class="blockTitle">
@@ -710,7 +712,7 @@
           </div> <!--end blog__wrap-->
         </div> <!--end container-->
       </section> <!--end blog-->
-      <section class="map">
+      <section class="map" id="sectionMap">
         <div class="map__wrap">
           <a href="#" class="map__link">
             <div class="map__icon"></div>
@@ -718,14 +720,227 @@
             <div class="line"></div>
           </a>
         </div> <!--end map__wrap-->
+        <a href="#" class="mapClose">X</a>
+          <div class="google-map" id="map"></div>
       </section> <!--end map-->
     </div> <!--end maincontent-->
   </div> <!--end wrapper-->
-  <!--footer -->
   <footer class="footer">
-
+    <div class="container">
+      <div class="footer__wrap">
+        <div class="footer__top">
+          <div class="footer__info">
+            <div class="logo logo_big">
+              <a href="#" class="logo__link">MoGo</a>
+            </div>
+            <div class="footer__infoText">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="footer__infoFollowers">
+              <span class="footer__infoFollowers-Num">15k</span>
+              <span class="footer__infoFollowers-text">followers</span>
+            </div>
+            <div class="footer__infoSocials">
+              <div class="footer__infoSocialsText">Follow Us:</div>
+              <ul class="footer__infoSocials-list">
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-pinterest-p"></i>
+                  </a>
+                </li>
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-google-plus-g"></i>
+                  </a>
+                </li>
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </li>
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-dribbble"></i>
+                  </a>
+                </li>
+                <li class="footer__infoSocials-item">
+                  <a href="#" class="footer__infoSocials-itemLink">
+                    <i class="fab fa-tumblr"></i>
+                  </a>
+                </li>
+              </ul>
+            </div> <!--end footer__infoSocials-->
+            <form action="" id="footer__form" class="footer__form" method="post" name="footer__form">
+              <input type="email" class="footer__formInput" name="footer__formInput" form="footer__form" placeholder="Your Email..." required>
+              <button type="submit" class="footer__formBtn" form="footer__form">subscribe</button>
+            </form>
+          </div> <!--end footer__info-->
+          <div class="footer__blogs">
+            <div class="footer__title">blogs</div>
+            <ul class="footer__blogsList">
+              <li class="footer__blogsItem">
+                <a href="#" class="footer__blogsItem-link">
+                  <img src="../img/content/blogs1.jpg" alt="" class="footer__blogsItem-img">
+                  <div class="footer__blogsItem-info">
+                    <div class="footer__blogsItem-infoText">Lorem ipsum dolor sit amet, consectetur adipiscing</div>
+                    <time class="footer__blogsItem-infoTime">Jan 9, 2016</time>
+                  </div>
+                </a>
+              </li>
+              <li class="footer__blogsItem">
+                <a href="#" class="footer__blogsItem-link">
+                  <img src="../img/content/blogs2.jpg" alt="" class="footer__blogsItem-img">
+                  <div class="footer__blogsItem-info">
+                    <div class="footer__blogsItem-infoText">Consectetur adipiscing elit, sed do eiusmod tempor</div>
+                    <time class="footer__blogsItem-infoTime">Jan 9, 2016</time>
+                  </div>
+                </a>
+              </li>
+              <li class="footer__blogsItem">
+                <a href="#" class="footer__blogsItem-link">
+                  <img src="../img/content/blogs3.jpg" alt="" class="footer__blogsItem-img">
+                  <div class="footer__blogsItem-info">
+                    <div class="footer__blogsItem-infoText">sed do eiusmod tempor incididunt ut labore</div>
+                    <time class="footer__blogsItem-infoTime">Jan 9, 2016</time>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div> <!--end footer__blogs-->
+          <div class="footer__instagram">
+            <div class="footer__title">instagram</div>
+            <ul class="footer__instagramList">
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram1.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram2.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram3.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram4.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram5.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram6.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram7.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram8.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram9.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram1.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram2.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+              <li class="footer__instagramItem">
+                <a href="#" class="footer__instagramLink">
+                  <img src="../img/content/instagram3.jpg" alt="" class="footer__instagramImg">
+                </a>
+              </li>
+            </ul>
+            <div class="footer__instagramBlock-link">
+              <a href="#" class="footer__instagramLink-more">View more photos</a>
+            </div>
+          </div> <!--end footer__instagram-->
+        </div> <!--end footer__top-->
+        <div class="footer__bottom">
+          <div class="footer__bottomText">&copy; 2016 MoGo</div>
+        </div> <!--end footer__bottom-->
+      </div> <!--end footer__wrap-->
+    </div> <!--end container-->
   </footer> <!--end footer-->
+
+  <div class="scroll-btn">
+    <i class="fas fa-angle-up scroll-btn__icon"></i>
+  </div>
+
+  <div class="floatMenu">
+    <div class="container">
+      <div class="floatMenu__wrap">
+        <div class="logo">
+          <a href="#" class="logo__link">MoGo</a>
+        </div>
+        <div class="header__top-right">
+          <nav class="menu">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a href="javascript:void(0)" onclick="slowScroll('#about')" class="menu__item-link menu__item-link_pbn">about</a>
+              </li>
+              <li class="menu__item">
+                <a href="javascript:void(0)" onclick="slowScroll('#service')" class="menu__item-link menu__item-link_pbn">service</a>
+              </li>
+              <li class="menu__item">
+                <a href="javascript:void(0)" onclick="slowScroll('#work')" class="menu__item-link menu__item-link_pbn">work</a>
+              </li>
+              <li class="menu__item">
+                <a href="javascript:void(0)" onclick="slowScroll('#blog')" class="menu__item-link menu__item-link_pbn">blog</a>
+              </li>
+              <li class="menu__item">
+                <a href="javascript:void(0)" onclick="slowScroll('#sectionMap')" class="menu__item-link menu__item-link_pbn">contact</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="shopping-cart">
+            <a href="#" class="shopping-cart__link"></a>
+          </div>
+          <div class="search">
+            <a href="#" class="search__link"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/vendor.min.js"></script>
   <script src="js/main.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwzjwQtTGAoXayN1glyDAqgtwkaDj0xc0&callback=initMap" async defer></script>
 </body>
 </html>

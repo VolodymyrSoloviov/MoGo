@@ -123,13 +123,17 @@
 	}
 }
 
-.fa-facebook-f,
-.fa-twitter,
-.fa-pinterest-p,
-.fa-instagram {
-	color: #f38181;
-	font-size: 30px;
+.team__picInner-itemLink {
+	
+	.fa-facebook-f,
+	.fa-twitter,
+	.fa-pinterest-p,
+	.fa-instagram {
+		color: #f38181;
+		font-size: 30px;
+	}
 }
+
 
 .team__picInfo {
 	display: flex;
