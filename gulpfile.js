@@ -34,6 +34,7 @@ var moduleJs = [
   'app/js/smooth-scrolling.js',
   'app/js/scroll-btn.js',
   'app/js/floatMenu.js',
+  'app/js/form.js',
   ];
 // Пути к нашим внешним плагинам и библиотекам javascript
 var vendorJs = [
