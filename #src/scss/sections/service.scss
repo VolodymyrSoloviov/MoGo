@@ -1,0 +1,67 @@
+.service {
+	min-height: 650px;
+	padding-top: 110px;
+}
+
+.service__list {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 15px;
+}
+
+.service__item {
+	display: flex;
+	justify-content: center;
+	flex: 0 0 400px;
+	padding: 50px 0;
+}
+
+.service__itemInfo {
+	width: 285px;
+}
+
+.service__itemIcon {
+	flex: 0 0 32px;
+	height: 32px;
+	margin-right: 30px;
+	background: center center no-repeat;
+}
+
+.service__itemIcon_alarm {
+	background-image: url(../img/icons/alarm.png);
+}
+
+.service__itemIcon_lineGraph {
+	background-image: url(../img/icons/line-graph.png);
+}
+
+.service__itemIcon_computer {
+	background-image: url(../img/icons/computer.png);
+}
+
+.service__itemIcon_book2 {
+	background-image: url(../img/icons/book2.png);
+}
+
+.service__itemIcon_home {
+	background-image: url(../img/icons/home.png);
+}
+
+.service__itemIcon_image {
+	background-image: url(../img/icons/image.png);
+}
+
+.service__itemTitle {
+	margin-bottom: 5px;
+	font-family: "Montserrat";
+	font-weight: 400;
+	font-size: 14px;
+	color: $black;
+	text-transform: uppercase;
+}
+
+.hr {
+	width: 100%;
+	height: 1px;
+	background: #e5e5e5;
+}

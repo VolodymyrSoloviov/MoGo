@@ -1,0 +1,46 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+   @font-face {
+      font-family: $font_name;
+      font-display: swap;
+      src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+      font-weight: #{$weight};
+      font-style: #{$style};
+   }
+}
+
+//colors
+$white: #fff;
+$gray: #999;
+$black: #333;
+
+//layout
+@import "layout/adjustment";
+@import "layout/fonts";
+@import "layout/normalize";
+@import "layout/owl.carousel";
+
+//sections
+@import "sections/header";
+@import "sections/about";
+@import "sections/facts";
+@import "sections/service";
+@import "sections/feature";
+@import "sections/service2";
+@import "sections/quote";
+@import "sections/team";
+@import "sections/logos";
+@import "sections/work";
+@import "sections/testimonial";
+@import "sections/say";
+@import "sections/blog";
+@import "sections/map";
+@import "sections/footer";
+@import "sections/myStyle";
+@import "sections/floatMenu";
+
+// media
+@import "media/xxl";
+@import "media/desktop";
+@import "media/laptop";
+@import "media/tablets";
+@import "media/phones";

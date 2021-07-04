@@ -1,0 +1,116 @@
+// Large devices (desktops)
+@media screen and (max-width: 991.98px) {
+	.container {
+		width: 720px;
+	}
+
+	//header
+	.header__text {
+		font-size: 55px;
+	}
+
+	.header__title {
+		font-size: 80px;
+		letter-spacing: 5px;
+	}
+
+	// facts
+	.facts__list {
+		flex-wrap: wrap;
+	}
+
+	.facts__item {
+		border: 1px solid #b5eae0;
+	}
+
+	//quote
+	.quote__wrap {
+		padding: 0 50px;
+	}
+
+	.quote__arrow_left {
+		left: 0;
+	}
+
+	.quote__arrow_right {
+		right: 0;
+	}
+
+	// team
+	.team__item {
+		height: auto;
+	}
+
+	.team__pic {
+		height: 300px;
+	}
+
+	.team__picWrap {
+		height: 300px;
+	}
+
+	// logos
+
+	.logos__list {
+		flex-wrap: wrap;
+		height: auto;
+		justify-content: flex-start;
+	}
+
+	.logos__item {
+		width: 20%;
+	}
+
+	// work
+
+	.work__list {
+		flex-wrap: wrap;
+		flex-direction: row;
+		height: auto;
+	}
+
+	.work__item {
+		width: 50%;
+	}
+
+	.work__item_long {
+		height: auto;
+	}
+
+	// testimonial
+	.testimonial__wrap {
+		padding: 0 50px;
+	}
+
+	.testimonial__arrow_left {
+		left: 0;
+	}
+
+	.testimonial__arrow_right {
+		right: 0;
+	}
+
+	.testimonial__itemInfo {
+		padding: 0 15px;
+	}
+
+	// map
+	.map {
+		max-height: 300px;
+	}
+
+	// footer
+	.footer__info {
+		flex: 0 0 100%;
+		min-height: auto;
+	}
+
+	.footer__blogs {
+		flex: 0 0 100%;
+		margin: 20px 0 0 0;
+	}
+
+	.footer__instagramItem {
+		flex: 0 0 20%;
+	}
+}

@@ -1,208 +1,224 @@
-const gulp = require('gulp');
-const imagemin = require('gulp-imagemin');
-const cache = require('gulp-cache');
-const sass = require('gulp-sass');
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
-const autoprefixer = require('gulp-autoprefixer');
-const minifycss = require('gulp-csso');
-const rename = require('gulp-rename');
-const browserSync = require('browser-sync').create();
-const gulpIf = require('gulp-if');
-const sourcemaps = require('gulp-sourcemaps');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const del = require('del');
-const runSequence = require('run-sequence');
-const wait = require('gulp-wait'); //встановлює затримку перед викликом наступної функції в ланцюжку.
-// SVG sprite
-const svgSprite = require('gulp-svg-sprite');
-const svgmin = require('gulp-svgmin');
-const cheerio = require('gulp-cheerio');
-const replace = require('gulp-replace');
+let project_folder = "dist";
+let source_folder = "#src";
 
+let fs = require('fs');
 
-/* ------ Конфигурация и настройка сборки  -------- */
-const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
-// Пути к нашим модулям JS
-var moduleJs = [
-  'app/js/quoteCarousel.js',
-  'app/js/testimonialCarousel.js',
-  'app/js/service2Acco.js',
-  'app/js/footerMore-photo.js',
-  'app/js/map.js',
-  'app/js/smooth-scrolling.js',
-  'app/js/scroll-btn.js',
-  'app/js/floatMenu.js',
-  'app/js/form.js',
-  ];
-// Пути к нашим внешним плагинам и библиотекам javascript
-var vendorJs = [
-  'app/bower/jquery/dist/jquery.min.js',
-  'app/bower/owl.carousel/dist/owl.carousel.min.js',
-  // 'node_modules/bootstrap/dist/js/bootstrap.min.js',
-  ];
-// Пути к нашим внешним плагинам и библиотекам css
-var vendorCss = [
-  'app/bower/normalize.css/normalize.css',
-  'app/scss/layout/all.css',
-  'app/bower/owl.carousel/dist/assets/owl.carousel.min.css',
-  ];
+let path = {
+   build: {
+      html: project_folder + "/",
+      css: project_folder + "/css/",
+      js: project_folder + "/js/",
+      img: project_folder + "/img/",
+      fonts: project_folder + "/fonts/",
+      favicons: project_folder + "/img/favicons/"
+   },
+   src: {
+      html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
+      css: source_folder + "/scss/style.scss",
+      js: source_folder + "/js/script.js",
+      img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
+      fonts: source_folder + "/fonts/*.woff",
+      favicons: source_folder + "/favicons/**/*.*"
+   },
+   watch: {
+      html: source_folder + "/**/*.html",
+      css: source_folder + "/scss/**/*.scss",
+      js: source_folder + "/js/**/*.js",
+      img: source_folder + "/img/**/*.{jpg, png, svg, gif, ico, webp}"
+   },
+   clean: "./" + project_folder + "/"
+}
 
-// Запускаем сервер. Предварительно выполнив задачи ['html', 'styles', 'images',
-// 'buildJs', 'vendor-js'] Сервер наблюдает за папкой "./dist". Здесь же
-gulp.task('browser-sync', [
-  'html',
-  'styles',
-  'images',
-  'build:js',
-  'vendor:js',
-  'vendor:css',
-  'fonts'
-], function () {
-  browserSync.init({
-    server: {
-      baseDir: "./dist"
-    }
-  });
-  // наблюдаем и обновляем страничку
-  browserSync.watch([
-    './dist/**/*.*', '!**/*.css'
-  ], browserSync.reload);
-});
+//вбудована функція зі спеціальним призначенням: завантажувати модулі (наприклад: завантажує модуль "gulp" з node_modules)
+let { src, dest } = require('gulp'),
+   gulp = require('gulp'), // Підключаємо Gulp
+   browsersync = require('browser-sync').create(), // Підключаємо Browser Sync
+   fileinclude = require('gulp-file-include'), // Підключає файли
+   del = require('del'), // Підключаємо бібліотеку для видалення файлів і папок
+   scss = require('gulp-sass')(require('sass')), // Підключаємо Sass пакет
+   autoprefixer = require('gulp-autoprefixer'), // Підключаємо бібліотеку для автоматичного додавання префіксів
+   clean_css = require('gulp-clean-css'), // Оптимізує css
+   rename = require('gulp-rename'), // Перейменовує файли
+   uglify = require('gulp-uglify-es').default, // Оптимізує js
+   imagemin = require('gulp-imagemin'), // Оптимізує картинки
+   webp = require('gulp-webp'),  // Конвертує картинки у формат webp
+   webhtml = require('gulp-webp-html'), // Інтегрує webp в html
+   webpCss = require('gulp-webp-css'), // Інтегрує webp в css
+   svgSprite = require('gulp-svg-sprite'), // Створює спрайт з svg 
+   ttf2woff = require('gulp-ttf2woff'), // Конвертує шрифти
+   ttf2woff2 = require('gulp-ttf2woff2'), // Конвертує шрифти
+   fonter = require('gulp-fonter'); // Конвертує otf2ttf
 
+function browserSync() {
+   browsersync.init({
+      server: {
+         baseDir: "./" + project_folder + "/"
+      },
+      port: 3000,
+      notify: false
+   })
+}
 
-// перенести странички
-gulp.task('html', function(){
-  return gulp.src('app/pages/**/*.*')
-    .pipe(gulp.dest('dist'));
-});
+//pipe - це функція всередині якої ми пишемо деякі команди для gulp
+function html() {
+   return src(path.src.html)
+      .pipe(fileinclude())
+      //.pipe(webhtml())
+      .pipe(dest(path.build.html))
+      .pipe(browsersync.stream())
+}
 
-// перенос шрифтов
-gulp.task('fonts', function(){
-  return gulp.src('app/fonts/**/*.*')
-    .pipe(gulp.dest('dist/fonts'));
-});
+function css() {
+   return src(path.src.css)
+      .pipe(
+         scss({
+            outputStyle: "expanded"
+         })
+      )
+      .pipe(
+         autoprefixer({
+            overrideBrowserslist: ["last 5 versions"]
+         })
+      )
+      //.pipe(webpCss())
+      .pipe(dest(path.build.css))
+      .pipe(clean_css())
+      .pipe(
+         rename({
+            extname: ".min.css"
+         })
+      )
+      .pipe(dest(path.build.css))
+      .pipe(browsersync.stream())
+}
 
-// перенос и оптимизация картинок
-gulp.task('images', function () {
-  return gulp
-    .src('app/img/**/*.{png,svg,jpg}')
-    .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
-    .pipe(gulp.dest('dist/img/'));
-});
+function js() {
+   return src(path.src.js)
+      .pipe(fileinclude())
+      .pipe(dest(path.build.js))
+      .pipe(uglify())
+      .pipe(
+         rename({
+            extname: ".min.js"
+         })
+      )
+      .pipe(dest(path.build.js))
+      .pipe(browsersync.stream())
+}
 
-// Style
-gulp.task('styles', function(){
-  return gulp.src(['app/scss/main.scss'])
-  .pipe(wait(500))
-  .pipe(plumber({
-    errorHandler: notify.onError(function (err) {
-      return {title: 'Style', message: err.message}
-    })
-  }))
-  .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-  .pipe(sass())
-  .pipe(autoprefixer('last 2 versions'))
-  .pipe(rename({suffix: '.min'}))
-  //.pipe(minifycss())
-  .pipe(gulpIf(isDevelopment, sourcemaps.write('maps')))
-  .pipe(gulp.dest('dist/css'))
-  .pipe(browserSync.stream())
-});
+function images() {
+   return src(path.src.img)
+      // .pipe(
+      //    webp({
+      //       quality: 50
+      //    })
+      // )
+      //.pipe(dest(path.build.img))
+      .pipe(src(path.src.img))
+      .pipe(imagemin([
+         imagemin.gifsicle({ interlaced: true }),
+         imagemin.mozjpeg({ quality: 75, progressive: true }),
+         imagemin.optipng({ optimizationLevel: 5 }),
+         imagemin.svgo({
+            plugins: [
+               { removeViewBox: true },
+               { cleanupIDs: false }
+            ]
+         })
+      ]))
+      .pipe(dest(path.build.img))
+      .pipe(browsersync.stream())
+}
 
-//Модули javascript. С минификацией и переносом
-gulp.task('build:js', function () {
-  return gulp
-    .src(moduleJs)
-    .pipe(plumber({
-      errorHandler: notify.onError(function (err) {
-        return {title: 'javaScript', message: err.message}
+function fonts() {
+   //src(path.src.fonts)
+   //.pipe(ttf2woff())
+   //.pipe(dest(path.build.fonts))
+   return src(path.src.fonts)
+      //.pipe(ttf2woff2())
+      .pipe(dest(path.build.fonts))
+}
+
+function favicons() {
+   return src(path.src.favicons)
+      .pipe(dest(path.build.favicons))
+}
+
+// Виконати в терміналі команду gulp otf2ttf
+gulp.task('otf2ttf', function () {
+   return src([source_folder + '/fonts/*.otf'])
+      .pipe(
+         fonter({
+            formats: ['ttf']
+         })
+      )
+      .pipe(dest(source_folder + '/fonts/'))
+})
+
+// Виконати в терміналі команду gulp svgSprite
+gulp.task('svgSprite', function () {
+   return gulp.src([source_folder + '/iconsprite/*.svg'])
+      .pipe(
+         svgSprite({
+            mode: {
+               stack: {
+                  sprite: "../icons/icons.svg", //sprite file name
+                  example: true
+               }
+            },
+         }
+         ))
+      .pipe(dest(path.build.img))
+})
+
+function fontsStyle(params) {
+
+   let file_content = fs.readFileSync(source_folder + '/scss/layout/fonts.scss');
+   if (file_content == '') {
+      fs.writeFile(source_folder + '/scss/layout/fonts.scss', '', cb);
+      return fs.readdir(path.build.fonts, function (err, items) {
+         if (items) {
+            let c_fontname;
+            for (var i = 0; i < items.length; i++) {
+               let fontname = items[i].split('.');
+               fontname = fontname[0];
+               if (c_fontname != fontname) {
+                  fs.appendFile(source_folder + '/scss/layout/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+               }
+               c_fontname = fontname;
+            }
+         }
       })
-    }))
-    .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-    .pipe(concat('main.min.js'))
-    //.pipe(uglify())
-    .pipe(gulpIf(isDevelopment, sourcemaps.write('maps')))
-    .pipe(gulp.dest('dist/js'));
-});
+   }
+}
 
-/* -------- Объединение всех подключаемых плагинов в один файл -------- */
-gulp.task('vendor:js', function () {
-  return gulp
-    .src(vendorJs)
-    .pipe(concat('vendor.min.js'))
-    .pipe(gulp.dest('dist/js'));
-});
-/* -------- Объединение всех стилей подключаемых плагинов в один файл -------- */
-gulp.task('vendor:css', function () {
-  return gulp
-    .src(vendorCss)
-    .pipe(concat('vendor.min.css'))
-    .pipe(minifycss())
-    .pipe(gulp.dest('dist/css/'));
-});
+function cb() {
 
-gulp.task('watch', function () {
-  gulp.watch("app/pages/**/*.html", ['html']);
-  gulp.watch("app/scss/**/*.scss", ['styles']);
-  gulp.watch("app/js/**/*.js", ['build:js']);
-  gulp.watch("app/img/**/*.*", ['images']);
-});
+}
 
-gulp.task('default', ['browser-sync', 'watch']);
+function watchFiles(params) {
+   gulp.watch([path.watch.html], html);
+   gulp.watch([path.watch.css], css);
+   gulp.watch([path.watch.js], js);
+   gulp.watch([path.watch.img], images);
+}
 
-// Очистка папки dist
-gulp.task('clean', function () {
-  return del(['dist'], {force: true}).then(paths => {
-    console.log('Deleted files and folders: in dist');
-  });
-});
+function clean(params) {
+   return del(path.clean);
+}
 
-// Выполнить билд проекта
-gulp.task('build', function (callback) {
-  runSequence(['clean'], [
-    'html',
-    'styles',
-    'images',
-    'build:js',
-    'vendor:js',
-    'vendor:css',
-    'fonts'
-  ], callback);
-});
+//завдання виконуються по порядку
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, favicons), fontsStyle);
+//завдання виконуються паралельно
+let watch = gulp.parallel(build, watchFiles, browserSync);
 
-gulp.task('build:svg', function () {
-  return gulp.src('app/temp/icons/*.svg')
-  // минифицируем svg
-    .pipe(svgmin({
-    js2svg: {
-      pretty: true
-    }
-  }))
-  // удалить все атрибуты fill, style and stroke в фигурах
-    .pipe(cheerio({
-    run: function ($) {
-      $('[fill]').removeAttr('fill');
-      $('[stroke]').removeAttr('stroke');
-      $('[style]').removeAttr('style');
-    },
-    parserOptions: {
-      xmlMode: true
-    }
-  }))
-  // cheerio плагин заменит, если появилась, скобка '&gt;', на нормальную.
-    .pipe(replace('&gt;', '>'))
-  // build svg sprite
-    .pipe(svgSprite({
-    mode: {
-      symbol: {
-        sprite: "../sprite.svg",
-        example: {
-          dest: '../tmp/spriteSvgDemo.html' // демо html
-        }
-      }
-    }
-  }))
-    .pipe(gulp.dest('app/img'));
-});
+exports.favicons = favicons;
+exports.fontsStyle = fontsStyle;
+exports.fonts = fonts;
+exports.images = images;
+exports.js = js;
+exports.css = css;
+exports.html = html;
+exports.build = build;
+exports.watch = watch;
+exports.default = watch;

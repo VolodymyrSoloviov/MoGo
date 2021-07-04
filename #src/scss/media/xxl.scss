@@ -1,0 +1,47 @@
+// Extra extra large (xxl)
+@media screen and (max-width: 1400px) {
+	.container {
+		max-width: 1140px;
+	}
+
+	// about
+	.about__item {
+		flex: 0 0 32%;
+	}
+
+	// service
+	.service__item {
+		flex: 0 0 32%;
+	}
+
+	// team
+	.team__item {
+		flex: 0 0 32%;
+	}
+
+	// blog
+	.blog__item {
+		flex: 0 0 32%;
+	}
+
+	// footer
+	.footer__info {
+		flex: 0 0 40%;
+	}
+
+	.footer__blogs {
+		flex: 0 0 32.5%;
+	}
+
+	.footer__instagram {
+		flex: 0 0 22.5%;
+	}
+
+	.footer__instagramList {
+		justify-content: space-between;
+	}
+
+	.footer__instagramItem {
+		flex: 0 0 32.5%;
+	}
+}
